@@ -1,0 +1,64 @@
+﻿<Window x:Class="ImageProcessingApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageProcessingApp"
+        mc:Ignorable="d"
+        Title="Image processing app"
+        Name="MainScreen" Height="900"
+        Width="1440" MinHeight="600"
+        MinWidth="800" WindowStyle="None">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="30"/>
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" Height="30" Width="{Binding ElementName=MainScreen,Path=ActualWidth}" Background="#3c3c3c">
+            <TextBlock TextAlignment="Center" DockPanel.Dock="Left" Foreground="#cdcdcd" Width="150">Image processing app</TextBlock>
+            <WrapPanel Width="120" DockPanel.Dock="Right" HorizontalAlignment="Right">
+                <Button x:Name="MinimizeBtn" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent" Style="{DynamicResource Button.Hoverless}" Width="30" Height="30" Margin="5,0">
+                    <Image Source="/Resources/Graphics/minimize.png"/>
+                </Button>
+                <Button x:Name="MaximizeBtn" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent" Style="{DynamicResource Button.Hoverless}" Width="30" Height="30" Margin="5,0">
+                    <Image Source="/Resources/Graphics/maximize.png"/>
+                </Button>
+                <Button x:Name="CloseBtn" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent" Style="{DynamicResource Button.Hoverless}" Width="30" Height="30" Margin="5,0">
+                    <Image Source="/Resources/Graphics/close.png"/>
+                </Button>
+            </WrapPanel>
+        </DockPanel>
+        <StackPanel Grid.Row="1">
+            <WrapPanel Name="ImagesPanel" Height="570">
+                <Border x:Name="OriginalBorder" BorderBrush="Black" BorderThickness="1" Height="550" Width="650" MaxHeight="800" MaxWidth="900" Margin="30,10">
+                    <Image x:Name="OriginalImage" MaxHeight="{Binding ElementName=OriginalBorder,Path=ActualHeight}" MaxWidth="{Binding ElementName=OriginalBorder,Path=ActualWidth}"/>
+                </Border>
+                <Border x:Name="ModifiedBorder" BorderBrush="Black" BorderThickness="1" Height="550" Width="650" MaxHeight="800" MaxWidth="900" Margin="30,10">
+                    <Image x:Name="ModifiedImage" MaxHeight="{Binding ElementName=ModifiedBorder,Path=ActualHeight}" MaxWidth="{Binding ElementName=ModifiedBorder,Path=ActualWidth}"/>
+                </Border>
+            </WrapPanel>
+            <WrapPanel>
+                <GroupBox Header="File" BorderThickness="4" BorderBrush="DarkGray">
+                    <WrapPanel Orientation="Horizontal">
+                        <Button Background="Transparent" x:Name="LoadImageBtn" Width="50" Height="50" Margin="10,0" Style="{DynamicResource Button.Hoverless}" Click="LoadImageBtn_Click">
+                            <Image Source="/Resources/Graphics/loadFile.png"/>
+                        </Button>
+                        <Button Background="Transparent" x:Name="SaveImageBtn" Width="50" Height="50" Margin="10,0" Style="{DynamicResource Button.Hoverless}" Click="SaveImageBtn_Click">
+                            <Image Source="/Resources/Graphics/save.png"/>
+                        </Button>
+                    </WrapPanel>
+                </GroupBox>
+                <GroupBox Header="Image manipulation" BorderThickness="4" BorderBrush="DarkGray">
+                    <WrapPanel>
+                        <Button x:Name="GrayScaleBtn" Width="50" Height="50" Margin="10,0" Style="{DynamicResource Button.Hoverless}" Click="GrayScaleBtn_Click" Background="Transparent" ToolTip="Grayscale">
+                            <Image Source="/Resources/Graphics/grayscale.png"></Image>
+                        </Button>
+                    </WrapPanel>
+                </GroupBox>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Window>
