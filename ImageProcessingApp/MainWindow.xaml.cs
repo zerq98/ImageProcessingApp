@@ -66,6 +66,8 @@ namespace ImageProcessingApp
             encoder.Frames.Add(BitmapFrame.Create((BitmapSource)ModifiedImage.Source));
             using (FileStream stream = new FileStream("./save.png", FileMode.Create))
                 encoder.Save(stream);
+
+            MessageBox.Show("Saved!!");
         }
 
         private void GrayScaleBtn_Click(object sender, RoutedEventArgs e)
@@ -73,6 +75,14 @@ namespace ImageProcessingApp
             if (bmp != null)
             {
                 ModifiedImage.Source = new Grayscale(bmp).Apply();
+            }
+        }
+
+        private void BrightnessSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (bmp != null)
+            {
+                ModifiedImage.Source = new BrightnessCorrection(bmp, (int)BrightnessSlider.Value).Apply();
             }
         }
     }

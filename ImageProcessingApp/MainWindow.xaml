@@ -40,8 +40,8 @@
                     <Image x:Name="ModifiedImage" MaxHeight="{Binding ElementName=ModifiedBorder,Path=ActualHeight}" MaxWidth="{Binding ElementName=ModifiedBorder,Path=ActualWidth}"/>
                 </Border>
             </WrapPanel>
-            <WrapPanel>
-                <GroupBox Header="File" BorderThickness="4" BorderBrush="DarkGray">
+            <WrapPanel Height="90">
+                <GroupBox Header="File" BorderThickness="4" BorderBrush="DarkGray" Height="90">
                     <WrapPanel Orientation="Horizontal">
                         <Button Background="Transparent" x:Name="LoadImageBtn" Width="50" Height="50" Margin="10,0" Style="{DynamicResource Button.Hoverless}" Click="LoadImageBtn_Click">
                             <Image Source="/Resources/Graphics/loadFile.png"/>
@@ -51,11 +51,21 @@
                         </Button>
                     </WrapPanel>
                 </GroupBox>
-                <GroupBox Header="Image manipulation" BorderThickness="4" BorderBrush="DarkGray">
+                <GroupBox Header="Image manipulation" BorderThickness="4" BorderBrush="DarkGray" Height="90">
                     <WrapPanel>
-                        <Button x:Name="GrayScaleBtn" Width="50" Height="50" Margin="10,0" Style="{DynamicResource Button.Hoverless}" Click="GrayScaleBtn_Click" Background="Transparent" ToolTip="Grayscale">
-                            <Image Source="/Resources/Graphics/grayscale.png"></Image>
+                        <Button x:Name="GrayScaleBtn" Width="50" Height="70" Margin="10,0,0,0" Style="{DynamicResource Button.Hoverless}" Click="GrayScaleBtn_Click" Background="Transparent" ToolTip="Grayscale">
+                            <StackPanel>
+                                <Image Source="/Resources/Graphics/grayscale.png"></Image>
+                                <TextBlock Text="Grayscale"></TextBlock>
+                            </StackPanel>
                         </Button>
+                        <StackPanel Width="360" Margin="20,0,0,0" ToolTip="Brightness Correction">
+                            <WrapPanel>
+                                <Slider x:Name="BrightnessSlider" Maximum="255" Minimum="-255" Value="0" Width="300" Height="30" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="BrightnessSlider_ValueChanged"></Slider>
+                                <TextBox Width="55" FontSize="25" Height="30" TextAlignment="Center" Text="{Binding ElementName=BrightnessSlider,Path=Value,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
+                            </WrapPanel>
+                            <TextBlock Text="Brightness correction" FontSize="15" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
                     </WrapPanel>
                 </GroupBox>
             </WrapPanel>
