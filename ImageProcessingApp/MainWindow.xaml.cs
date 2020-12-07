@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,6 +26,7 @@ namespace ImageProcessingApp
     public partial class MainWindow : Window
     {
         BitmapImage bmp;
+        Thread imageManipulation;
 
         public MainWindow()
         {
@@ -83,6 +85,14 @@ namespace ImageProcessingApp
             if (bmp != null)
             {
                 ModifiedImage.Source = new BrightnessCorrection(bmp, (int)BrightnessSlider.Value).Apply();
+            }
+        }
+
+        private void ContrastSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (bmp != null)
+            {
+                ModifiedImage.Source = new ContrastCorrection(bmp, (int)ContrastSlider.Value).Apply();
             }
         }
     }

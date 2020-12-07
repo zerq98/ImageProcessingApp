@@ -66,6 +66,13 @@
                             </WrapPanel>
                             <TextBlock Text="Brightness correction" FontSize="15" HorizontalAlignment="Center"></TextBlock>
                         </StackPanel>
+                        <StackPanel Width="360" Margin="20,0,0,0" ToolTip="Brightness Correction">
+                            <WrapPanel>
+                                <Slider x:Name="ContrastSlider" Maximum="255" Minimum="0" Value="0" Width="300" Height="30" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="ContrastSlider_ValueChanged"></Slider>
+                                <TextBox Width="55" FontSize="25" Height="30" TextAlignment="Center" Text="{Binding ElementName=ContrastSlider,Path=Value,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
+                            </WrapPanel>
+                            <TextBlock Text="Contrast correction" FontSize="15" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
                     </WrapPanel>
                 </GroupBox>
             </WrapPanel>

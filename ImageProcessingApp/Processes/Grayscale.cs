@@ -8,7 +8,7 @@ using System.Windows.Media.Imaging;
 
 namespace ImageProcessingApp.Processes
 {
-    public class Grayscale
+    public class Grayscale : IManipulation
     {
         private Bitmap _img;
 

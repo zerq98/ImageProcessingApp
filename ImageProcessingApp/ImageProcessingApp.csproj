@@ -79,7 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Processes\BrightnessCorrection.cs" />
+    <Compile Include="Processes\ContrastCorrection.cs" />
     <Compile Include="Processes\Grayscale.cs" />
+    <Compile Include="Processes\IManipulation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
