@@ -8,13 +8,13 @@ using System.Windows.Media.Imaging;
 
 namespace ImageProcessingApp.Processes
 {
-    public class Grayscale : IManipulation
+    public class Negative : IManipulation
     {
-        private Bitmap _img;
+        private readonly Bitmap _img;
 
-        public Grayscale(BitmapImage img)
+        public Negative(BitmapImage image)
         {
-            _img = BitmapConverter.ConvertToBitmap(img);
+            _img = BitmapConverter.ConvertToBitmap(image);
         }
 
         public async Task<BitmapImage> Apply()
@@ -32,9 +32,11 @@ namespace ImageProcessingApp.Processes
                 {
                     var pix = _img.GetPixel(i, j);
 
-                    byte newColor = (byte)((pix.R + pix.G + pix.B) / 3);
+                    int r = 255 - pix.R;
+                    int g = 255 - pix.G;
+                    int b = 255 - pix.B;
 
-                    var colorToSet = Color.FromArgb(255, newColor, newColor, newColor);
+                    var colorToSet = Color.FromArgb(255, r, g, b);
 
                     _img.SetPixel(i, j, colorToSet);
                 }

@@ -9,6 +9,8 @@ namespace ImageProcessingApp.Processes
 {
     public interface IManipulation
     {
-        BitmapImage Apply();
+        Task<BitmapImage> Apply();
+
+        Action Manipulate();
     }
 }

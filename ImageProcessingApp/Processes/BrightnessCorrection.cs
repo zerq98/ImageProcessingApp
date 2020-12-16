@@ -19,7 +19,14 @@ namespace ImageProcessingApp.Processes
             _value = value;
         }
 
-        public BitmapImage Apply()
+        public async Task<BitmapImage> Apply()
+        {
+            await Task.Run(Manipulate);
+
+            return BitmapConverter.ConvertToBitmapImage(_img);
+        }
+
+        public Action Manipulate()
         {
             for (int i = 0; i < _img.Width; i++)
             {
@@ -64,7 +71,7 @@ namespace ImageProcessingApp.Processes
                 }
             }
 
-            return BitmapConverter.ConvertToBitmapImage(_img);
+            return null;
         }
     }
 }

@@ -26,7 +26,8 @@ namespace ImageProcessingApp
     public partial class MainWindow : Window
     {
         BitmapImage bmp;
-        Thread imageManipulation;
+        private delegate Task ImageManipulation(IManipulation manipulation);
+        private ImageManipulation Manipulation { get; set; }
 
         public MainWindow()
         {
@@ -44,6 +45,8 @@ namespace ImageProcessingApp
                     MainScreen.WindowState = WindowState.Maximized;
                 }
             };
+
+            Manipulation = ApplyManipulationAsync;
         }
 
         private void LoadImage(string path)
@@ -72,28 +75,32 @@ namespace ImageProcessingApp
             MessageBox.Show("Saved!!");
         }
 
+        private async Task ApplyManipulationAsync(IManipulation manipulation)
+        {
+            if (bmp != null)
+            {
+                ModifiedImage.Source = await manipulation.Apply();
+            }
+        }
+
         private void GrayScaleBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (bmp != null)
-            {
-                ModifiedImage.Source = new Grayscale(bmp).Apply();
-            }
+            Manipulation.Invoke(new Grayscale(bmp));
         }
 
-        private void BrightnessSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void ContrastSlider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
         {
-            if (bmp != null)
-            {
-                ModifiedImage.Source = new BrightnessCorrection(bmp, (int)BrightnessSlider.Value).Apply();
-            }
+            Manipulation.Invoke(new ContrastCorrection(bmp, (int)ContrastSlider.Value));
         }
 
-        private void ContrastSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void BrightnessSlider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
         {
-            if (bmp != null)
-            {
-                ModifiedImage.Source = new ContrastCorrection(bmp, (int)ContrastSlider.Value).Apply();
-            }
+            Manipulation.Invoke(new BrightnessCorrection(bmp, (int)BrightnessSlider.Value));
+        }
+
+        private void NegativeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Manipulation.Invoke(new Negative(bmp));
         }
     }
 }
