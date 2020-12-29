@@ -40,7 +40,7 @@
                     <Image x:Name="ModifiedImage" MaxHeight="{Binding ElementName=ModifiedBorder,Path=ActualHeight}" MaxWidth="{Binding ElementName=ModifiedBorder,Path=ActualWidth}"/>
                 </Border>
             </WrapPanel>
-            <WrapPanel Height="90">
+            <WrapPanel Width="{Binding ElementName=MainScreen, Path=ActualWidth}">
                 <GroupBox Header="File" BorderThickness="4" BorderBrush="DarkGray" Height="90">
                     <WrapPanel Orientation="Horizontal">
                         <Button Background="Transparent" x:Name="LoadImageBtn" Width="50" Height="50" Margin="10,0" Style="{DynamicResource Button.Hoverless}" Click="LoadImageBtn_Click">
@@ -53,33 +53,51 @@
                 </GroupBox>
                 <GroupBox Header="Image manipulation" BorderThickness="4" BorderBrush="DarkGray" Height="90">
                     <WrapPanel>
-                        <Button x:Name="GrayScaleBtn" Width="50" Height="70" Margin="10,0,0,0" Style="{DynamicResource Button.Hoverless}" Click="GrayScaleBtn_Click" Background="Transparent" ToolTip="Grayscale">
+                        <Button x:Name="GrayScaleBtn" Width="50" Height="70" Margin="10,0,10,0" Style="{DynamicResource Button.Hoverless}" Click="GrayScaleBtn_Click" Background="Transparent" ToolTip="Grayscale">
                             <StackPanel>
                                 <Image Source="/Resources/Graphics/grayscale.png"></Image>
                                 <TextBlock Text="Grayscale"></TextBlock>
                             </StackPanel>
                         </Button>
-                        <StackPanel Width="360" Margin="20,0,0,0" ToolTip="Brightness Correction">
-                            <WrapPanel>
-                                <Slider x:Name="BrightnessSlider" Maximum="255" Minimum="-255" Value="0" Width="300" Height="30" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Thumb.DragCompleted="BrightnessSlider_DragCompleted"></Slider>
-                                <TextBox Width="55" FontSize="25" Height="30" TextAlignment="Center" Text="{Binding ElementName=BrightnessSlider,Path=Value,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
-                            </WrapPanel>
-                            <TextBlock Text="Brightness correction" FontSize="15" HorizontalAlignment="Center"></TextBlock>
-                        </StackPanel>
-                        <StackPanel Width="360" Margin="20,0,0,0" ToolTip="Brightness Correction">
-                            <WrapPanel>
-                                <Slider x:Name="ContrastSlider" Maximum="255" Minimum="0" Value="0" Width="300" Height="30" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Thumb.DragCompleted="ContrastSlider_DragCompleted"></Slider>
-                                <TextBox Width="55" FontSize="25" Height="30" TextAlignment="Center" Text="{Binding ElementName=ContrastSlider,Path=Value,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
-                            </WrapPanel>
-                            <TextBlock Text="Contrast correction" FontSize="15" HorizontalAlignment="Center"></TextBlock>
-                        </StackPanel>
                         <Button x:Name="NegativeBtn" Width="50" Height="70" Style="{DynamicResource Button.Hoverless}" Click="NegativeBtn_Click" Background="Transparent" ToolTip="Negative">
                             <StackPanel>
                                 <Image Source="/Resources/Graphics/negative.png"></Image>
                                 <TextBlock Text="Negative"></TextBlock>
                             </StackPanel>
                         </Button>
+                        <StackPanel Width="360" Margin="20,0,0,0" ToolTip="Brightness Correction">
+                            <WrapPanel>
+                                <Slider x:Name="BrightnessSlider" Maximum="255" Minimum="-255" Value="0" Width="300" Height="30" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Thumb.DragCompleted="BrightnessSlider_DragCompleted"></Slider>
+                                <TextBox IsEnabled="False" Width="55" FontSize="25" Height="30" TextAlignment="Center" Text="{Binding ElementName=BrightnessSlider,Path=Value,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
+                            </WrapPanel>
+                            <TextBlock Text="Brightness correction" FontSize="15" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Width="360" Margin="20,0,0,0" ToolTip="Brightness Correction">
+                            <WrapPanel>
+                                <Slider x:Name="ContrastSlider" Maximum="255" Minimum="0" Value="0" Width="300" Height="30" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Thumb.DragCompleted="ContrastSlider_DragCompleted"></Slider>
+                                <TextBox IsEnabled="False" Width="55" FontSize="25" Height="30" TextAlignment="Center" Text="{Binding ElementName=ContrastSlider,Path=Value,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
+                            </WrapPanel>
+                            <TextBlock Text="Contrast correction" FontSize="15" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Width="360" Margin="20,0,0,0" ToolTip="Brightness Correction">
+                            <WrapPanel>
+                                <Slider x:Name="BinarySlider" Maximum="255" Minimum="0" Value="0" Width="300" Height="30" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Thumb.DragCompleted="BinarySlider_DragCompleted"></Slider>
+                                <TextBox IsEnabled="False" Width="55" FontSize="25" Height="30" TextAlignment="Center" Text="{Binding ElementName=BinarySlider,Path=Value,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
+                            </WrapPanel>
+                            <TextBlock Text="Binarization" FontSize="15" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
                     </WrapPanel>
+                </GroupBox>
+                <GroupBox Header="Image filters" BorderThickness="4" BorderBrush="DarkGray" Height="90">
+
+                </GroupBox>
+                <GroupBox Header="Histogram" BorderThickness="4" BorderBrush="DarkGray" Height="90" Padding="10,0,10,0">
+                    <Button x:Name="HistogramBtn" Width="60" Height="70" Style="{DynamicResource Button.Hoverless}" Click="HistogramBtn_Click" Background="Transparent" ToolTip="Negative">
+                        <StackPanel>
+                            <Image Source="/Resources/Graphics/chart.png" Width="50"></Image>
+                            <TextBlock Text="Histogram"></TextBlock>
+                        </StackPanel>
+                    </Button>
                 </GroupBox>
             </WrapPanel>
         </StackPanel>

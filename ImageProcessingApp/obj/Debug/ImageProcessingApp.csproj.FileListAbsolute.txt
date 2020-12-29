@@ -17,3 +17,11 @@ F:\C# or C++ Projects\ImageProcessingApp\ImageProcessingApp\obj\Debug\App.baml
 F:\C# or C++ Projects\ImageProcessingApp\ImageProcessingApp\obj\Debug\style.baml
 F:\C# or C++ Projects\ImageProcessingApp\ImageProcessingApp\bin\Debug\System.Drawing.Common.dll
 F:\C# or C++ Projects\ImageProcessingApp\ImageProcessingApp\obj\Debug\ImageProcessingApp.csproj.CopyComplete
+F:\C# or C++ Projects\ImageProcessingApp\ImageProcessingApp\bin\Debug\LiveCharts.dll
+F:\C# or C++ Projects\ImageProcessingApp\ImageProcessingApp\bin\Debug\LiveCharts.Wpf.dll
+F:\C# or C++ Projects\ImageProcessingApp\ImageProcessingApp\bin\Debug\LiveCharts.pdb
+F:\C# or C++ Projects\ImageProcessingApp\ImageProcessingApp\bin\Debug\LiveCharts.xml
+F:\C# or C++ Projects\ImageProcessingApp\ImageProcessingApp\bin\Debug\LiveCharts.Wpf.pdb
+F:\C# or C++ Projects\ImageProcessingApp\ImageProcessingApp\bin\Debug\LiveCharts.Wpf.xml
+F:\C# or C++ Projects\ImageProcessingApp\ImageProcessingApp\obj\Debug\HistogramWindow.g.cs
+F:\C# or C++ Projects\ImageProcessingApp\ImageProcessingApp\obj\Debug\HistogramWindow.baml

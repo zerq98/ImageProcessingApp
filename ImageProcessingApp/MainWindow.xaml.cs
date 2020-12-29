@@ -67,12 +67,19 @@ namespace ImageProcessingApp
 
         private void SaveImageBtn_Click(object sender, RoutedEventArgs e)
         {
-            var encoder = new PngBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create((BitmapSource)ModifiedImage.Source));
-            using (FileStream stream = new FileStream("./save.png", FileMode.Create))
-                encoder.Save(stream);
+            if (bmp != null)
+            {
+                var encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create((BitmapSource)ModifiedImage.Source));
+                using (FileStream stream = new FileStream("./save.png", FileMode.Create))
+                    encoder.Save(stream);
 
-            MessageBox.Show("Saved!!");
+                MessageBox.Show("Saved!!");
+            }
+            else
+            {
+                MessageBox.Show("Nothing to save!!");
+            }
         }
 
         private async Task ApplyManipulationAsync(IManipulation manipulation)
@@ -85,22 +92,50 @@ namespace ImageProcessingApp
 
         private void GrayScaleBtn_Click(object sender, RoutedEventArgs e)
         {
-            Manipulation.Invoke(new Grayscale(bmp));
+            if (bmp != null){
+                Manipulation.Invoke(new Grayscale(bmp));
+            }
         }
 
         private void ContrastSlider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
         {
-            Manipulation.Invoke(new ContrastCorrection(bmp, (int)ContrastSlider.Value));
+            if (bmp != null)
+            {
+                Manipulation.Invoke(new ContrastCorrection(bmp, (int)ContrastSlider.Value));
+            }
         }
 
         private void BrightnessSlider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
         {
-            Manipulation.Invoke(new BrightnessCorrection(bmp, (int)BrightnessSlider.Value));
+            if (bmp != null)
+            {
+                Manipulation.Invoke(new BrightnessCorrection(bmp, (int)BrightnessSlider.Value));
+            }
         }
 
         private void NegativeBtn_Click(object sender, RoutedEventArgs e)
         {
-            Manipulation.Invoke(new Negative(bmp));
+            if (bmp != null)
+            {
+                Manipulation.Invoke(new Negative(bmp));
+            }
+        }
+
+        private void BinarySlider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        {
+            if (bmp != null)
+            {
+                Manipulation.Invoke(new Binarization(bmp, (int)BinarySlider.Value));
+            }
+        }
+
+        private void HistogramBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (bmp != null)
+            {
+                var histogramWindow = new HistogramWindow(bmp);
+                histogramWindow.Show();
+            }
         }
     }
 }
