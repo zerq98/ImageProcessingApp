@@ -89,10 +89,17 @@
                     </WrapPanel>
                 </GroupBox>
                 <GroupBox Header="Image filters" BorderThickness="4" BorderBrush="DarkGray" Height="90">
-
+                    <WrapPanel Margin="10,0,10,0">
+                        <Button x:Name="MedianBtn" Width="60" Height="70" Style="{DynamicResource Button.Hoverless}" Click="MedianBtn_Click" Background="Transparent" ToolTip="Median filter">
+                            <StackPanel>
+                                <Image Source="/Resources/Graphics/filter.png" Width="50"></Image>
+                                <TextBlock Text="Median"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </WrapPanel>
                 </GroupBox>
                 <GroupBox Header="Histogram" BorderThickness="4" BorderBrush="DarkGray" Height="90" Padding="10,0,10,0">
-                    <Button x:Name="HistogramBtn" Width="60" Height="70" Style="{DynamicResource Button.Hoverless}" Click="HistogramBtn_Click" Background="Transparent" ToolTip="Negative">
+                    <Button x:Name="HistogramBtn" Width="60" Height="70" Style="{DynamicResource Button.Hoverless}" Click="HistogramBtn_Click" Background="Transparent" ToolTip="Histogram">
                         <StackPanel>
                             <Image Source="/Resources/Graphics/chart.png" Width="50"></Image>
                             <TextBlock Text="Histogram"></TextBlock>

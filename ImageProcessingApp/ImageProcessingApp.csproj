@@ -78,7 +78,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BitmapConverter.cs" />
-    <Compile Include="Helpers\Interval.cs" />
     <Compile Include="HistogramWindow.xaml.cs">
       <DependentUpon>HistogramWindow.xaml</DependentUpon>
     </Compile>
@@ -98,6 +97,7 @@
     <Compile Include="Processes\Grayscale.cs" />
     <Compile Include="Processes\Histogram.cs" />
     <Compile Include="Processes\IManipulation.cs" />
+    <Compile Include="Processes\Median.cs" />
     <Compile Include="Processes\Negative.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -153,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Graphics\chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Graphics\filter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

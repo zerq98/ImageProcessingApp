@@ -137,5 +137,13 @@ namespace ImageProcessingApp
                 histogramWindow.Show();
             }
         }
+
+        private void MedianBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (bmp != null)
+            {
+                Manipulation.Invoke(new Median(bmp));
+            }
+        }
     }
 }
