@@ -145,5 +145,13 @@ namespace ImageProcessingApp
                 Manipulation.Invoke(new Median(bmp));
             }
         }
+
+        private void GausseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (bmp != null)
+            {
+                Manipulation.Invoke(new Gaussian(bmp));
+            }
+        }
     }
 }

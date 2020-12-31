@@ -41,9 +41,9 @@ namespace ImageProcessingApp.Processes
                             var red = pixelValue.R;
                             var green = pixelValue.G;
                             var blue = pixelValue.B;
-                            sumRed = sumRed + red;
-                            sumGreen = sumGreen + green;
-                            sumBlue = sumBlue + blue;
+                            sumRed += red;
+                            sumGreen += green;
+                            sumBlue += blue;
                         }
                     }
                     var averageRed = (int)(sumRed / 9);

@@ -94,6 +94,7 @@
     <Compile Include="Processes\Binarization.cs" />
     <Compile Include="Processes\BrightnessCorrection.cs" />
     <Compile Include="Processes\ContrastCorrection.cs" />
+    <Compile Include="Processes\Gaussian.cs" />
     <Compile Include="Processes\Grayscale.cs" />
     <Compile Include="Processes\Histogram.cs" />
     <Compile Include="Processes\IManipulation.cs" />

@@ -96,6 +96,12 @@
                                 <TextBlock Text="Median"></TextBlock>
                             </StackPanel>
                         </Button>
+                        <Button x:Name="GausseBtn" Width="60" Height="70" Style="{DynamicResource Button.Hoverless}" Click="GausseBtn_Click" Background="Transparent" ToolTip="Gaussian filter">
+                            <StackPanel>
+                                <Image Source="/Resources/Graphics/filter.png" Width="50"></Image>
+                                <TextBlock Text="Gaussian"></TextBlock>
+                            </StackPanel>
+                        </Button>
                     </WrapPanel>
                 </GroupBox>
                 <GroupBox Header="Histogram" BorderThickness="4" BorderBrush="DarkGray" Height="90" Padding="10,0,10,0">
