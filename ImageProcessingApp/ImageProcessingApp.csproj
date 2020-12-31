@@ -100,6 +100,7 @@
     <Compile Include="Processes\IManipulation.cs" />
     <Compile Include="Processes\Median.cs" />
     <Compile Include="Processes\Negative.cs" />
+    <Compile Include="Processes\Sharpen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

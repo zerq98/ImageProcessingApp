@@ -23,7 +23,7 @@
                 <Button x:Name="MinimizeBtn" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent" Style="{DynamicResource Button.Hoverless}" Width="30" Height="30" Margin="5,0">
                     <Image Source="/Resources/Graphics/minimize.png"/>
                 </Button>
-                <Button x:Name="MaximizeBtn" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent" Style="{DynamicResource Button.Hoverless}" Width="30" Height="30" Margin="5,0">
+                <Button x:Name="MaximizeBtn" Visibility="Hidden" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent" Style="{DynamicResource Button.Hoverless}" Width="30" Height="30" Margin="5,0">
                     <Image Source="/Resources/Graphics/maximize.png"/>
                 </Button>
                 <Button x:Name="CloseBtn" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent" Style="{DynamicResource Button.Hoverless}" Width="30" Height="30" Margin="5,0">
@@ -100,6 +100,12 @@
                             <StackPanel>
                                 <Image Source="/Resources/Graphics/filter.png" Width="50"></Image>
                                 <TextBlock Text="Gaussian"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="SharpenBtn" Width="60" Height="70" Style="{DynamicResource Button.Hoverless}" Click="SharpenBtn_Click" Background="Transparent" ToolTip="Gaussian filter">
+                            <StackPanel>
+                                <Image Source="/Resources/Graphics/filter.png" Width="50"></Image>
+                                <TextBlock Text="Sharpen"></TextBlock>
                             </StackPanel>
                         </Button>
                     </WrapPanel>

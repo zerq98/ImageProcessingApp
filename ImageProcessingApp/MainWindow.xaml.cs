@@ -153,5 +153,13 @@ namespace ImageProcessingApp
                 Manipulation.Invoke(new Gaussian(bmp));
             }
         }
+
+        private void SharpenBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (bmp != null)
+            {
+                Manipulation.Invoke(new Sharpen(bmp));
+            }
+        }
     }
 }
