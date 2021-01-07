@@ -102,10 +102,26 @@
                                 <TextBlock Text="Gaussian"></TextBlock>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="SharpenBtn" Width="60" Height="70" Style="{DynamicResource Button.Hoverless}" Click="SharpenBtn_Click" Background="Transparent" ToolTip="Gaussian filter">
+                        <Button x:Name="SharpenBtn" Width="60" Height="70" Style="{DynamicResource Button.Hoverless}" Click="SharpenBtn_Click" Background="Transparent" ToolTip="Sharpen filter">
                             <StackPanel>
                                 <Image Source="/Resources/Graphics/filter.png" Width="50"></Image>
                                 <TextBlock Text="Sharpen"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </WrapPanel>
+                </GroupBox>
+                <GroupBox Header="Edge detection" BorderThickness="4" BorderBrush="DarkGray" Height="90" Padding="10,0,10,0">
+                    <WrapPanel Margin="10,0,10,0">
+                        <Button x:Name="RobertsBtn" Width="60" Height="70" Style="{DynamicResource Button.Hoverless}" Click="RobertsBtn_Click" Background="Transparent" ToolTip="Roberts">
+                            <StackPanel>
+                                <Image Source="/Resources/Graphics/edge.png" Width="50"></Image>
+                                <TextBlock Text="Roberts"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="SobelBtn" Width="60" Height="70" Style="{DynamicResource Button.Hoverless}" Click="SobelBtn_Click" Background="Transparent" ToolTip="Sobel">
+                            <StackPanel>
+                                <Image Source="/Resources/Graphics/edge.png" Width="50"></Image>
+                                <TextBlock Text="Sobel" TextAlignment="Center"></TextBlock>
                             </StackPanel>
                         </Button>
                     </WrapPanel>

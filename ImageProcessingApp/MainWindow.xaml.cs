@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -159,6 +160,22 @@ namespace ImageProcessingApp
             if (bmp != null)
             {
                 Manipulation.Invoke(new Sharpen(bmp));
+            }
+        }
+
+        private void RobertsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (bmp != null)
+            {
+                Manipulation.Invoke(new Roberts(bmp));
+            }
+        }
+
+        private void SobelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (bmp != null)
+            {
+                Manipulation.Invoke(new Sobel(bmp));
             }
         }
     }

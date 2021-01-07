@@ -100,7 +100,9 @@
     <Compile Include="Processes\IManipulation.cs" />
     <Compile Include="Processes\Median.cs" />
     <Compile Include="Processes\Negative.cs" />
+    <Compile Include="Processes\Roberts.cs" />
     <Compile Include="Processes\Sharpen.cs" />
+    <Compile Include="Processes\Sobel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -158,6 +160,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Graphics\filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Graphics\edge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Graphics\checkmark.png" />
+    <Resource Include="Resources\Graphics\loadingCircle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

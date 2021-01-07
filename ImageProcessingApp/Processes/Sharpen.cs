@@ -33,10 +33,9 @@ namespace ImageProcessingApp.Processes
 
             double[,] filter = new double[filterWidth, filterHeight];
 
-            filter[0, 0] = filter[0, 1] = filter[0, 2] = filter[1, 0] = filter[1, 2] =
-           filter[2, 0] = filter[2, 2] = -1;
-            filter[2, 1] = 1;
-            filter[1, 1] = 9;
+            filter[0, 0] = filter[0, 2] = filter[2, 0] = filter[2, 2] = 0;
+            filter[0, 1] = filter[1, 0] = filter[1, 2] = filter[2, 1] = -2;
+            filter[1, 1] = 11;
 
             double factor = 1.0;
             double bias = 0.0;

@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/graphics/filter.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/graphics/checkmark.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/graphics/loadingcircle.png")]
 
 
