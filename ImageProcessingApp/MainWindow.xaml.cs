@@ -102,6 +102,8 @@ namespace ImageProcessingApp
         {
             if (bmp != null)
             {
+                BrightnessSlider.Value = 0;
+                BinarySlider.Value = 0;
                 Manipulation.Invoke(new ContrastCorrection(bmp, (int)ContrastSlider.Value));
             }
         }
@@ -110,6 +112,8 @@ namespace ImageProcessingApp
         {
             if (bmp != null)
             {
+                ContrastSlider.Value = 0;
+                BinarySlider.Value = 0;
                 Manipulation.Invoke(new BrightnessCorrection(bmp, (int)BrightnessSlider.Value));
             }
         }
@@ -126,6 +130,8 @@ namespace ImageProcessingApp
         {
             if (bmp != null)
             {
+                BrightnessSlider.Value = 0;
+                ContrastSlider.Value = 0;
                 Manipulation.Invoke(new Binarization(bmp, (int)BinarySlider.Value));
             }
         }
