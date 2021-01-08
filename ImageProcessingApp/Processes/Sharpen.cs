@@ -26,18 +26,18 @@ namespace ImageProcessingApp.Processes
 
         public Action Manipulate()
         {
-            int[,] maska = new int[3, 3];
-            maska[0, 0] = 0;
-            maska[0, 1] = -2;
-            maska[0, 2] = 0;
+            int[,] mask = new int[3, 3];
+            mask[0, 0] = 0;
+            mask[0, 1] = -2;
+            mask[0, 2] = 0;
 
-            maska[1, 0] = -2;
-            maska[1, 1] = 11;
-            maska[1, 2] = -2;
+            mask[1, 0] = -2;
+            mask[1, 1] = 11;
+            mask[1, 2] = -2;
 
-            maska[2, 0] = 0;
-            maska[2, 1] = -2;
-            maska[2, 2] = 0;
+            mask[2, 0] = 0;
+            mask[2, 1] = -2;
+            mask[2, 2] = 0;
 
             Color p1, p2, p3, p4, p5, p6, p7, p8, p9;
             int newR, newG, newB;
@@ -55,15 +55,14 @@ namespace ImageProcessingApp.Processes
                     p8 = _img.GetPixel(x + 1, y + 2);
                     p9 = _img.GetPixel(x + 2, y + 2);
 
-                    int dzielenie = 0;
+                    int dividing = 0;
                     for (int a = 0; a != 3; a++)
                     {
                         for (int b = 0; b != 3; b++)
                         {
-                            dzielenie += maska[a, b];
+                            dividing += mask[a, b];
                         }
                     }
-                    int R1 = 0, R2 = 0;
                     int r1, r2, r3, r4, r5, r6, r7, r8, r9;
                     int g1, g2, g3, g4, g5, g6, g7, g8, g9;
                     int b1, b2, b3, b4, b5, b6, b7, b8, b9;
@@ -78,14 +77,14 @@ namespace ImageProcessingApp.Processes
                     r8 = p8.R; g8 = p8.G; b8 = p8.B;
                     r9 = p9.R; g9 = p9.G; b9 = p9.B;
 
-                    newR = ((r1 * maska[0, 0] + r2 * maska[0, 1] + r3 * maska[0, 2] + r4 * maska[1, 0] + r5 * maska[1, 1] + r6 * maska[1, 2] + r7 * maska[2, 0] + r8 * maska[2, 1] + r9 * maska[2, 2]) / dzielenie);
+                    newR = ((r1 * mask[0, 0] + r2 * mask[0, 1] + r3 * mask[0, 2] + r4 * mask[1, 0] + r5 * mask[1, 1] + r6 * mask[1, 2] + r7 * mask[2, 0] + r8 * mask[2, 1] + r9 * mask[2, 2]) / dividing);
                     if (newR > 255) newR = 255; else if (newR < 0) newR = 0;
-                    newG = ((g1 * maska[0, 0] + g2 * maska[0, 1] + g3 * maska[0, 2] + g4 * maska[1, 0] + g5 * maska[1, 1] + g6 * maska[1, 2] + g7 * maska[2, 0] + g8 * maska[2, 1] + g9 * maska[2, 2]) / dzielenie);
+                    newG = ((g1 * mask[0, 0] + g2 * mask[0, 1] + g3 * mask[0, 2] + g4 * mask[1, 0] + g5 * mask[1, 1] + g6 * mask[1, 2] + g7 * mask[2, 0] + g8 * mask[2, 1] + g9 * mask[2, 2]) / dividing);
                     if (newG > 255) newG = 255; else if (newG < 0) newG = 0;
-                    newB = ((b1 * maska[0, 0] + b2 * maska[0, 1] + b3 * maska[0, 2] + b4 * maska[1, 0] + b5 * maska[1, 1] + b6 * maska[1, 2] + b7 * maska[2, 0] + b8 * maska[2, 1] + b9 * maska[2, 2]) / dzielenie);
+                    newB = ((b1 * mask[0, 0] + b2 * mask[0, 1] + b3 * mask[0, 2] + b4 * mask[1, 0] + b5 * mask[1, 1] + b6 * mask[1, 2] + b7 * mask[2, 0] + b8 * mask[2, 1] + b9 * mask[2, 2]) / dividing);
                     if (newB > 255) newB = 255; else if (newB < 0) newB = 0;
-                    Color nowypixel = Color.FromArgb(newR, newG, newB);
-                    _img.SetPixel(x, y, nowypixel);
+                    Color newColor = Color.FromArgb(newR, newG, newB);
+                    _img.SetPixel(x, y, newColor);
                 }
 
             }
