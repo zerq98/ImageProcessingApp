@@ -72,7 +72,7 @@ namespace ImageProcessingApp
             {
                 var encoder = new PngBitmapEncoder();
                 encoder.Frames.Add(BitmapFrame.Create((BitmapSource)ModifiedImage.Source));
-                using (FileStream stream = new FileStream("./save.png", FileMode.Create))
+                using (FileStream stream = new FileStream($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}/modifiedImage.png", FileMode.Create))
                     encoder.Save(stream);
 
                 MessageBox.Show("Saved!!");
